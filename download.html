@@ -1,0 +1,83 @@
+<html>
+    <title>Download</title>
+    <link rel="stylesheet" href="assets/css/w3.css">
+    <style>
+        html { 
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%; 
+            background-color: gray;
+        }
+        .border {
+            background-color: white;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 45px;
+            padding: 18px;
+            padding-top:18px;
+            padding-left:24px;
+            padding-right:24px;
+            padding-bottom:4px;
+        }
+        h1 {
+            font-size: 48px;
+            padding: 0;
+            margin: 0;
+            margin-top: 12px;
+        }
+        h2 {
+            font-size: 28px;
+            padding: 0;
+            margin: 0;
+            margin-top: 12px;
+            color: #737373;
+        }
+        .p {color:#333333;padding:6px 4px 4px 4px;display:inline-block;}
+        button {
+            background-color:green;
+            padding: 18px 72px 18px 72px;
+            border:1px solid #737373;
+            font-size: 18px;
+            color: white;
+            margin: 14px;
+            transition: background 0.2s, color 0.1s;
+        }
+        button:hover {background-color: darkgreen;}
+        .rbtn {background-color:darkred;font-size:14px;margin:9px;}
+        .rbtn:hover {background-color:#660000;}
+        hr {background-color:#e6e6e6; border:0.1px solid #e6e6e6;}
+        .ad {margin-top:100px;}
+    </style>
+
+    <div style="float:left;" class="ad"><script type="text/javascript" src="assets/js/side-ad.js"></script></div>
+    <div style="float:right;" class="ad"><script type="text/javascript" src="assets/js/side-ad.js"></script></div>
+
+    <div class="border">
+        <h1 id="name"></h1>
+        <h2 id="version"></h2>
+        <br>
+        <p>Thank you for downloading my free project!<br></p>
+        <hr>
+        <div class="w3-center">
+            <a id="1d" href=""><button style="margin-top:27px;">Download Now</button></a>
+        </div>
+        <br>
+
+        <p class="w3-center" style="margin-top:215px;margin-bottom:4px;font-size:11px;padding-bottom:4px;">&copy; 2020 by Isaiah</p>
+    </div>
+
+    <script>
+        var pro = ("https:"==document.location.protocol)?"https://":"http://";
+        var spl = window.location.href.split("?");
+        document.getElementById("name").innerHTML = spl[1].split("&")[0];
+        document.getElementById("version").innerHTML = spl[1].split("&")[1];
+
+        if (spl[1].split("&").length > 3) {
+            document.getElementById("1d").href = pro + spl[1].split("&")[3];
+        } else {
+            var link = spl[1].split("&")[2];
+            document.getElementById("1d").href = pro + link;
+        }
+    </script>
+
+</html>

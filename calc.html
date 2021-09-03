@@ -1,0 +1,55 @@
+<html>
+<link rel="stylesheet" href="https://3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://w3schools.com/lib/w3-theme-black.css">
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+
+<style>
+html,body {height:100vh;}
+body {background:rgb(180,180,180);color:white}
+.side{margin-top: 2em;margin:2vw;display:inline-block;color:white;border-radius:8px;}
+.blue {background:#0059b3}.dblu {background:#004d99;border-radius:4px}
+
+table td, table td * {vertical-align:top}
+input[type="button"],button{background-color:rgba(40,40,40,.5);color:rgb(220,220,220);border:solid black 1px;height:3rem;width:3rem}
+input[type="text"]  {background-color:rgba(40,40,40,.5);border:solid black 2px;color:white;height:3rem;width:100%}
+table {min-width:100%;padding:.18rem;}
+</style>
+<script>
+  function dis(val){  document.getElementById("result").value+=val; }
+  function solve(){ document.getElementById("result").value = eval( document.getElementById("result").value ); }
+  function clr(){ document.getElementById("result").value = "";}
+</script>
+<body>
+  <div class="w3-sidebar w3-bar-block side blue w3-card adr" style="height:300px;box-shadow: -1px 4px 16px black;display:inline-block;">
+    <h3 class="w3-bar-item dblu" style="font-size:.8rem;padding:4px;margin-top:0"><table>
+    <tr><td colspan="3"><input type="text" id="result"/></td><td><input type="button" value="c" onclick="clr()"/> </td></tr></table></h3>
+    <table>
+     <tr>
+      <td><button onclick="dis('1')">1</button></td>
+	  <td><button onclick="dis('2')">2</button></td>
+	  <td><button onclick="dis('3')">3</button></td>
+	  <td><button onclick="dis('/')">/</button></td>
+     </tr>
+     <tr>
+      <td><button onclick="dis('4')">4</button></td>
+	  <td><button onclick="dis('5')">5</button></td>
+	  <td><button onclick="dis('6')">6</button></td>
+      <td><button onclick="dis('-')">-</button></td>
+     </tr>
+     <tr>
+	  <td><button onclick="dis('7')">7</button></td>
+      <td><button onclick="dis('8')">8</button></td>
+	  <td><button onclick="dis('9')">9</button></td>
+      <td><button onclick="dis('+')">+</button></td>
+     </tr>
+     <tr>
+	  <td><button onclick="dis('.')">.</button></td>
+	  <td><button onclick="dis('0')">0</button></td>
+	  <td><button onclick="solve()">=</button></td>
+	  <td><button onclick="dis('*')">&times;</button></td>
+     </tr>
+    </table>
+  </div>
+</body>
+</html>

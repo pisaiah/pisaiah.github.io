@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>APP</title>
+	<style>
+		body {
+			background: #3A6EA5;
+			backgrounda: url('bg.svg') no-repeat;
+			background-size: 100%;
+			font-family: system-ui;
+			user-select: none;
+			margin: 0;
+		}
+		.ct { position:absolute; top:5px; left:11px; vertical-align:center; width: calc(100% - 20px); }
+		#winc, .win {
+			position: absolute;
+			atop: 50%;
+			aleft: 50%;
+			atransform: translate(-50%, -50%);
+			box-shadow: 2px 4px 4px rgb(0, 14, 100);
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+			
+		}
+		#window, .window {
+			width: 940px;
+			height: 500px;
+			border: 4px solid rgb(35, 93, 219);
+			resize: both !important;
+			overflow:hidden;
+		}
+		#bbar {
+			position:fixed;
+			bottom:0;
+			width: 100vw;
+			height: 35px;
+			background: rgb(46, 104, 220);
+			abackground: rgba(40, 47, 65, .8);
+			border: 2px solid rgb(56, 136, 233);
+			aborder: 3px solid rgba(0, 0, 0, .5);
+		}
+		#bar,.bar {
+			background: url('titlebar-blank.png') no-repeat;
+			background-size: 100% 29px;
+			width: 100%;
+			height: 29px;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+		}
+		#sm { height:35px; width:96px; background: url('winctrl.png'); border:0; background-size: 100% 100%; }
+		#sm:hover { filter:brightness(110%); cursor:pointer }
+		#sm:active { filter: brightness(120%) }
+		#mm {
+			background: url('menu.png');
+			background-size: 100% 100%;
+			position: absolute;
+			abackground: blue;
+			bottom: 32px;
+			width: 476px;
+			height: 600px;
+		}
+		#icon img, figure img {
+			width: 64px;
+			height: 64px;
+			border:1px solid red;
+			border-radius: 4px;
+			background: rgb(230,230,230);
+		}
+		figure { width:64px }
+		figcaption { text-align:center; background:rgb(0,0,0,.1); color: white;}
+		iframe { width:100%; height:100%; overflow:hidden}
+		</style>
+	<script type="module" src="mui_helper.js"></script>
+</head>
+<body>
+	<div id="icons">
+		<figure id="icon" onclick="open_frame('vide wasm demo', './app/vide/index.html', 940, 500)">
+			<img src="https://raw.githubusercontent.com/v-ide/v-ide.github.io/a75d33d263f195c48c7fabbf84577e2ad5db35f7/vide.svg">
+			<figcaption>Vide</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('vpaint demo', 'https://vpaint.app/demo/?full', 640, 480)">
+			<img src="./app/vpaint0.png">
+			<figcaption>VPaint</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/Calculator', './app/calc/index.html', 280, 360)">
+			<img src="./app/blank.png">
+			<figcaption>examples/<br>Calculator</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/Notepad', './app/notepad/index.html', 280, 360)">
+			<img src="./app/blank.png">
+			<figcaption>examples/<br>Notepad</figcaption>
+		</figure>
+	</div>
+	
+	<div id="bbar">
+		<button id="sm"onclick="open_menu()">menu</button>
+		<div id="mm"  style="display:none" >
+			
+		</div>
+	</div>
+	<script>
+	var frame_count = 0;
+	function open_frame(n, u, w, h) {
+		if (w > window.innerWidth) { w = window.innerWidth }
+		if (h > window.innerHeight) { h = window.innerHeight }
+	
+		var fra = document.createElement('div');
+		fra.setAttribute('id', 'frame-' + frame_count)
+		fra.className = "win";
+		var sty = 'style="width: ' + w + 'px; height: ' + h + 'px"';
+		var tit = n + '<button style="float:right" onclick="document.getElementById(\'frame-' + frame_count + '\').remove()">&times</button>'
+		fra.innerHTML = '<div id="bar"><span class="ct" style="color:rgb(240,240,240)">' + tit + '</span></div><div class="window" ' + sty + '><iframe src="' + u + '"></iframe></div>';
+		fra.style.zIndex = frame_count;
+		fra.style.top = ((window.innerHeight / 2) - (h / 2)) + "px"
+		fra.style.left = ((window.innerWidth / 2) - (w / 2)) + "px"
+		document.body.appendChild(fra);
+		frame_count += 1;
+		fix_drag();
+	}
+
+	function $(id){return document.getElementById(id)}
+	function open_menu() {
+		var el = $('mm');
+		if (el.style.display == 'block') { el.style.display = "none"; } else { el.style.display = "block"; }
+	}
+
+function fix_drag() {
+	var qsa = document.querySelectorAll(".win");
+	for (var ii = 0; ii < qsa.length; ii++) { var wwc = qsa[ii]; dragElement(wwc); }
+}
+
+function get_z_idx() {
+	var qsa = document.querySelectorAll(".win");
+	var lar = 0;
+	for (var ii = 0; ii < qsa.length; ii++) {
+		var wwc = qsa[ii];
+		var zi = parseInt(wwc.style.zIndex);
+		if (zi > lar) { lar = zi; }
+	}
+	return lar;
+}
+
+function dragElement(elm) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, zin = 0;
+	var b1 = elm.children[0];
+  
+	if (b1) { b1.onmousedown = dragMouseDown; } else { elmnt.onmousedown = dragMouseDown; }
+
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		pos3 = e.clientX; pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		document.onmousemove = elementDrag;
+		var nin = get_z_idx()
+		if (zin != nin) { zin = nin + 1; elm.style.zIndex = zin; }
+	}
+
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		pos1 = pos3 - e.clientX; pos2 = pos4 - e.clientY; pos3 = e.clientX; pos4 = e.clientY;
+		elm.style.top = (elm.offsetTop - pos2) + "px";
+		elm.style.left = (elm.offsetLeft - pos1) + "px";
+	}
+
+  function closeDragElement() { document.onmouseup = null; document.onmousemove = null; }
+}
+
+document.keydown = (function(event) {
+    if (!((String.fromCharCode(event.which).toLowerCase() == 's' || event.keyCode == 13) && event.ctrlKey) && !(event.which == 19)) return true;
+    alert("Ctrl-S pressed");
+    event.preventDefault();
+    return false;
+});
+</script>
+</body>
+</html>

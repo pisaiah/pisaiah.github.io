@@ -64,6 +64,7 @@
 			max-height: 95svh;
 		}
 		#icon img, figure img {
+			margin-left: 13px;
 			width: 64px;
 			height: 64px;
 			border:1px solid rgb(200,200,200);
@@ -73,8 +74,8 @@
 		#icons { border:1px solid transparent; max-height: calc(90svh - 35px);display:flex;flex-wrap:wrap;flex-direction:column;row-gap:0px;column-gap:0px;
 		justify-content:start;gap:0;align-content:flex-start;
 		}
-		figure { width:64px }
-		figcaption { text-align:center; background:rgb(0,0,0,.1); color: white;}
+		figure { width:90px }
+		figcaption { text-align:center; background:rgb(0,0,0,.1); color: white; font-size: 14px;}
 		iframe { width:100%; height:100%; overflow:hidden}
 		.ccb {padding-left:15px;padding-right:15px;}
 		</style>
@@ -97,6 +98,26 @@
 		<figure id="icon" onclick="open_frame('examples/Notepad', './app/notepad/index.html', 280, 360)">
 			<img src="./app/blank.png">
 			<figcaption>examples/<br>Notepad</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/2-BorderLayoutDemo', './app/borderlayout/index.html', 480, 360)">
+			<img src="./app/blank.png">
+			<figcaption>examples/2-BorderLayoutDemo</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/3-BoxLayoutDemo', './app/boxlayout/index.html', 480, 360)">
+			<img src="./app/blank.png">
+			<figcaption>examples/3-BoxLayoutDemo</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/Demo', './app/demo/index.html', 700, 440)">
+			<img src="./app/blank.png">
+			<figcaption>examples/Demo</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/Games/1-Minesweeper', './app/mines/index.html', 280, 360)">
+			<img src="./app/blank.png">
+			<figcaption>Mines</figcaption>
+		</figure>
+		<figure id="icon" onclick="open_frame('examples/Games/2-Tic-Tac-Toe-Squared', './app/tictactoe/index.html', 400, 360)">
+			<img src="./app/blank.png">
+			<figcaption>(Tic-Tac-Toe)^2</figcaption>
 		</figure>
 	</div>
 	

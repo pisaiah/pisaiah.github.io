@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>APP</title>
-	<style>
-		body {background: rgb(0, 75, 130);font-family: system-ui;margin: 0;}
-		#canvas { position:absolute; top:0px; left:0px; width:100%; height:100%; cursor: default }
-		</style>
-	<script type="module" src="helper.js"></script>
-</head>
-<body>
-	<!-- Vide -->
-	<canvas id="canvas" tabindex=1 virtualkeyboardpolicy="manual" contenteditable="" inputmode="text"></canvas>
-	<script>
-	document.keydown = (function(event) {
-		if (!((String.fromCharCode(event.which).toLowerCase() == 's' || event.keyCode == 13) && event.ctrlKey) && !(event.which == 19)) return true;
-		alert("Ctrl-S pressed");
-		event.preventDefault();
-		return false;
-	});
-	</script>
-</body>
-</html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style>body{background:rgb(50,50,50);}#canvas { width:100%; height:calc(100svh - .1svh); border:1px solid black;}</style>
+	<title>wasm</title>
+	<body>
+	<div id="mc" class=""><canvas id="canvas" tabindex=-1></canvas></div>
+	<script id="appjs" src="./app.js"></script>
+	<script type="module" src="iui_helper.js"></script>
+	</body>
+	</html>
+	

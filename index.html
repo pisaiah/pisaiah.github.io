@@ -2,27 +2,129 @@
 <html>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="./assets/theme.css">
+	<title>psaiah</title>
 	<style>
-		body,html{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}hr{border:0;border-top:1px solid #eee;margin:20px 0}a{color:inherit} .w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap} .w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none} .w3-button:disabled{cursor:not-allowed;opacity:.3}:disabled *{pointer-events:none} .w3-ul{list-style-type:none;padding:0;margin:0} .w3-ul li{padding:8px 16px;border-bottom:1px solid #ddd} .w3-ul li:last-child{border-bottom:none}#main,.w3-main{transition:margin-left .4s} .w3-container:after,.w3-container:before{content:"";display:table;clear:both}@media (max-width:992px){.w3-main{margin-left:0!important;margin-right:0!important}} .w3-container{padding:.01em 16px} .w3-padding{padding:8px 16px!important} .w3-button:hover{color:#000!important;background-color:#ccc!important}
-	
-		li a, li { padding: 4px; } a:hover {background:rgb(0,0,0,.1)}
-		body { background:rgb(240,240,240) }
-		a { color: rgb(0, 100, 200); width: 300px; }
+		li a, li { padding: 4px; }
+		body { background:rgb(230,230,230); }
+		a { color: rgb(0, 100, 200); }
+		
+		td { padding-left: .4rem; padding-right: 1rem; margin: .4rem}
+		th { text-align: left; padding-right: 1rem; margin: .4rem }
+		
+		.w3-card-4, .w3-card { min-heaight: calc( 7rem);padding-top:1rem;margin: 8px;border-radius: 8px; padding-bottom: 1rem;}
+		
+		.w3-card img { max-height: 120px !important; height: 120px !important; widtah: 100%; display:block; padding-left: 8px; max-width: 200px;}
+		.w3-card h4 {font-weight:550}
+		.w3-quartae { width: 300px; }
+		.w3-roww{
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+
+		.w3-roww > div {
+			min-width: 300px;
+			max-width: 600px;
+			flex-grow: 1;
+			flex-basis: 100px;
+		}
+
+		.w3-roww > div a {
+			padding-right: 1px;
+		}
+		.w3-roww > div p { padding-bottom: 1rem; min-heaight: 4rem; }
+		
+		@media (prefers-color-scheme: dark) {
+		  body { background: #172531; color: rgb(250,250,250); }
+		  a { color: rgb(64, 180, 255) }
+		  .w3-card { background: rgb(0,0,0, .4); }
+		  .w3-card:hover { background: rgb(10,10,10,.3) }
+		  hr { border: .5px solid rgb(0,0,0,.5); }
+		}
+		
+		button{border:none;border-radius:4px;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+		button:hover{color:#000!important;background-color:#ccc!important}
 	</style>
     <body>
-		<div class="w3-container">
-        <h1>My website</h1>
-        <br>
+	<div class="w3-bar w3-theme">
+		<a href="#" class="w3-bar-item w3-button">Home</a>
+		<!--
+		<a href="#" class="w3-bar-item w3-button">Link 1</a>
+		<a href="#" class="w3-bar-item w3-button">Link 2</a>
+		<a href="#" class="w3-bar-item w3-button">Link 3</a>
+		-->
+	</div>
+	
+		<div class="w3-auto">
+        <h3>Hello world</h3>
 
 		<div class="w3-container">
-			<h3>My stuff</h3>
 			<ul>
-				<li><a href="https://github.com/pisaiah/">Github Profile</a></li>
-				<li><a href="https://curseforge.com/members/theisaiahp/projects">Curseforge Profile</a></li>
-				<li><a href="https://github.com/pisaiah/ui">iui</a> - Cross-platform GUI library for V</li>
-				<li><a href="https://v-ide.com">v-ide.com</a> - Simple IDE for the V Programming Language.</li>
-				<li><a href="https://vpaint.app">vpaint.app</a> - Simple Image Viewer & Editor</li>
+				<li><a href="https://github.com/pisaiah/">Github</a> &middot; <a href="https://curseforge.com/members/theisaiahp/projects">Curseforge</a></li>
 			</ul>
+
+		</div>
+		
+		<h4>Projects</h4>
+		<div class="w3-roww">
+		
+			<div class="w3-quarte w3-card" style="">
+				
+				<div class="w3-container">
+				<img src="./assets/t0.png" style="float:right" alt="Preview">
+					<h4><a target="_blank" href="https://github.com/pisaiah/ui">iUI</a></h4>
+					<p>Cross-platform GUI library for V</p>
+					<a href="https://github.com/pisaiah/ui"><button class="w3-theme-dark">Github</button></a>
+				</div>
+			</div>
+			
+			<div class="w3-quarte w3-card" style="">
+				
+				<div class="w3-container">
+				<img src="./assets/paint2.png" style="float:right" alt="Preview">
+					<h4><a href="https://vpaint.app">VPaint</a></h4>
+					<p>Simple Image Viewer & Editor for Windows, Mac, Linux, Web/Wasm</p>
+					<a href="https://github.com/pisaiah/vpaint"><button class="w3-theme-dark">Github</button></a>
+					<a href="https://vpaint.app/demo"><button class="w3-theme-dark">Try It</button></a>
+				</div>
+			</div>
+			
+			<div class="w3-quarte w3-card">
+				
+				<div class="w3-container">
+				<img src="./assets/vide.svg" style="float:right" alt="Preview">
+					<h4><a target="_blank" href="https://v-ide.com">Vide</a></h4>
+					<p>Simple IDE for the V Programming Language.</p>
+					<a href="https://github.com/pisaiah/vide"><button class="w3-theme-dark">Github</button></a>
+					<a href="https://v-ide.com"><button class="w3-theme-dark">v-ide.com</button></a>
+				</div>
+			</div>
+			
+			<div class="w3-quarte w3-card">
+				<div class="w3-container">
+					<img src="./assets/menu.png" style="float:right" alt="Preview">
+					<h4><a target="_blank" href="./projects/menu.html">Menu</a></h4>
+					<p>Basic simple start menu</p>
+				</div>
+			</div>
+			
+			<div class="w3-quarte w3-card">
+				<div class="w3-container">
+					<h4><a target="_blank" href="https://invent.js.org">Invent.js.org</a></h4>
+					<p>Build JS with Blocks</p>
+				</div>
+			</div>
+			
+			<div class="w3-quarte w3-card">
+				<div class="w3-container">
+					<h4><a target="_blank" href="https://invent.js.org">Mines</a></h4>
+					<p>Minesweeper-clone written in V</p>
+				</div>
+			</div>
+
+		
 		</div>
 		
         <br>
